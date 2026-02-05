@@ -46,13 +46,8 @@ const config = {
           trackingID: 'G-7KD31X6H62',
           anonymizeIP: true,
         },
-        blog: false, // Blogs and its settings are now in the custom blog plugin below. Its because we have tags based filters in community impact page. Those filters are coming from Blog posts.
-        docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/CIROH-UA/ciroh-ua_website/edit/main/",
-        },
+        blog: false, // Both default plug-ins are now disabled.
+        docs: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -61,46 +56,6 @@ const config = {
   ],
 
   plugins: [
-    // Lunr Search Plugin for search functionality
-    [
-      require.resolve('docusaurus-lunr-search'), 
-      {
-        languages: ['en'], // language codes for search
-      }
-    ],
-    
-    // Draw.io Plugin for embedding diagrams
-    ['drawio', {}],
-    
-    // Custom Blog Plugin
-    [
-      './plugins/plugin-content-blog.js', 
-      {
-        id: "blog",
-        blogTitle: "DocuHub blog!",
-        blogDescription: "A DocuHub powered blog!",
-        postsPerPage: "ALL", // Display all posts on a single page
-        path: "blog", // Path to the blog posts
-        authorsMapPath: "authors.yaml", // Path to the authors' mapping file
-        blogSidebarCount: "ALL",
-        blogSidebarTitle: "DocuHub Blog",
-      }
-    ],
-
-    // Release notes (also based on the custom blog plugin)
-    [
-      './plugins/plugin-content-blog.js', 
-      {
-        id: "release-notes",
-        blogTitle: "DocuHub release notes!",
-        blogDescription: "A quick glance at what's new in DocuHub.",
-        postsPerPage: "ALL", // Display all posts on a single page
-        path: "release-notes", // Path to the blog posts
-        routeBasePath: 'release-notes', // Slug for the blog
-        //authorsMapPath: "authors.yaml", // Path to the authors' mapping file (unneeded in this case)
-      }
-    ],
-
     // Redirects (handler for dead links)
     [
       '@docusaurus/plugin-client-redirects',
@@ -321,24 +276,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     (
       {
-      announcementBar: {
-        id: 'ciroh_hub_notice',
-        content:
-          '🧭 CIROH DocuHub is moving to a new home. <a target="_blank" rel="noopener noreferrer" href="'+baseUrl+'ciroh-hub">Learn more about the transition to CIROH Hub</a>.',
-        backgroundColor: '#0081d2ff',
-        textColor: '#fff',
-        isCloseable: false,
-      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
         respectPrefersColorScheme: false,
-      },
-      docs: {
-        sidebar: {
-          autoCollapseCategories: false,
-          hideable: true,
-        },
       },
       stylesheets: [
         "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css",
@@ -350,136 +291,12 @@ const config = {
           alt: "CIROH Logo",
           src: "img/logos/docuhub.png",
         },
-        items: [
-          {
-            type: "doc",
-            docId: "products/intro",
-            label: "Products",
-            position: "left",
-          },
-          {
-            type: "doc",
-            docId: "services/intro",
-            label: "Services",
-            position: "left",
-          },
-          {
-            type: "doc",
-            docId: "policies/intro",
-            label: "Policies",
-            position: "left",
-          },
-          {
-            href: "https://portal.ciroh.org/", // Research portal URL
-            label: "CIROH Portal",
-            position: "left",
-          },
-          {
-            href: "/impact",
-            label: "Community Impact",
-            position: "right",
-          },
-          {
-            href: "/blog",
-            label: "Blog",
-            position: "right",
-          },
-          {
-            href: "/news",
-            label: "News",
-            position: "right",
-          },
-          {
-            href: "/release-notes",
-            label: "Release Notes",
-            position: "right",
-          },
-        ],
       },
       footer: {
         style: "dark",
-        links: [
-          {
-            title: 'Quick Links',
-            items: [
-              {
-                label: 'CIROH Portal',
-                href: 'http://portal.ciroh.org/'
-              },
-              {
-                label: 'Contact Us',
-                href: '/contact'
-              },
-              {
-                label: 'Contribute',
-                href: '/docs/contribute'
-              },
-              {
-                label: 'Feedback',
-                href: 'https://forms.office.com/r/5ww7qRWwwf'
-              },
-            ]
-          },
-          {
-            title: 'About CIROH',
-            items: [
-              {
-                label: 'About Us',
-                href: 'https://ciroh.ua.edu/about/'
-              },
-              {
-                label: 'Members & Partners',
-                href: 'https://ciroh.ua.edu/about/ciroh-partners/'
-              },
-              {
-                label: 'Contact CIROH',
-                href: 'https://ciroh.ua.edu/contact-us/'
-              },
-              {
-                label: 'DocuHub Repository',
-                href: 'https://github.com/CIROH-UA/ciroh-ua_website'
-              },
-            ]
-          },
-          {
-            title: "Follow us on",
-            items: [
-              {
-                html: `
-                  <div class="footer-social-links">
-                    <a href="https://github.com/CIROH-UA" target="_blank" rel="noreferrer noopener" aria-label="Visit CIROH">
-                      <img src="${baseUrl}img/socials/github_light.svg" alt="CIROH on GitHub" width="40" height="40" />
-                    </a>
-                    <a href="https://www.linkedin.com/company/uaciroh/" target="_blank" rel="noreferrer noopener" aria-label="CIROH on LinkedIn">
-                      <img src="${baseUrl}img/socials/linkedin_light.svg" alt="CIROH on LinkedIn" width="40" height="40" />
-                    </a>
-                    <a href="https://www.youtube.com/@UA_CIROH" target="_blank" rel="noreferrer noopener" aria-label="CIROH on YouTube">
-                      <img src="${baseUrl}img/socials/youtube_light.svg" alt="CIROH on YouTube" width="40" height="40" />
-                    </a>
-                  </div>
-                `,
-              },
-              {
-                html: `
-                <div class="footer-social-links"> 
-                  <a href="https://www.instagram.com/ua_ciroh/" target="_blank" rel="noreferrer noopener" aria-label="CIROH on Instagram">
-                    <img src="${baseUrl}img/socials/instagram_light.svg" alt="CIROH on Instagram" width="40" height="40" />
-                  </a>       
-                  <a href="https://www.facebook.com/UACIROH/" target="_blank" rel="noreferrer noopener" aria-label="CIROH on Facebook">
-                    <img src="${baseUrl}img/socials/facebook_light.svg" alt="CIROH on Facebook" width="40" height="40" />
-                  </a>              
-                  <a href="https://twitter.com/UA_CIROH" target="_blank" rel="noreferrer noopener" aria-label="CIROH on X (Twitter)">
-                    <img src="${baseUrl}img/socials/x_light.svg" alt="CIROH on X (Twitter)" width="40" height="40" />
-                  </a>
-                </div>
-                `,
-              },
-            ],
-          },
-        ],
         copyright: `
           <div class="footer__attrib">
-            Developed with ❤️ by DocuHub Team at CIROH
+            Developed with ❤️ by the CIROH Hub team
           </div>
           <div class="footer__funding">
             This research was supported by the Cooperative Institute for Research to Operations in Hydrology
