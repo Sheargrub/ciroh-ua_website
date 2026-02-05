@@ -4,6 +4,10 @@ const baseUrl = "/local/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  // Tells search engines to avoid indexing the redirect shell.
+  noIndex: true,
+  // WARNING: Potentially destructive setting, deploy with care.
+
   title: "CIROH DocuHub",
   tagline: "Documenting Water Research in the Digital Age",
   staticDirectories: ["static", "img"],
