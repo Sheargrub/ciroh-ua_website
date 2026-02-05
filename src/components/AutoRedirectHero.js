@@ -3,7 +3,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 // Mostly identical to RedirectHero. Automatically handles redirects to pages that retain largely identical paths in CIROH Hub.
 
-const target = "https://docs.ciroh.org"
+const target = "https://hub.ciroh.org"
 
 function stripBaseURL(path, baseURL) {
     if (baseURL === "/") return path;
