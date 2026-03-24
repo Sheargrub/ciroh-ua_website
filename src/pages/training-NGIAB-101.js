@@ -1,14 +1,8 @@
-import BrowserOnly from '@docusaurus/BrowserOnly';
+import RedirectHandler from "@site/src/components/RedirectHero/RedirectHandler"
 
 // This wasn't technically part of CIROH Hub, so redirect silently.
 export default function NgiabModuleRedirect() {
   return (
-    <BrowserOnly>
-      <span>
-        <script>
-          {setTimeout(() => location.href = "https://ngiab.ciroh.org/ngiab-101", 0)}
-        </script>
-      </span>
-    </BrowserOnly>
+    <RedirectHandler href="https://ngiab.ciroh.org/ngiab-101" delay="0" />
   )
 }

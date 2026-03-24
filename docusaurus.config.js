@@ -141,6 +141,11 @@ const config = {
             to: '/docs/products/ngiab/office-hours',
             from: '/docs/products/Community Hydrologic Modeling Framework/ngiabOfficeHours',
           },
+          // Data access: edge case that seems to break the build process
+          {
+            to: '/docs/products/data-management/dataaccess/NWMURL Library',
+            from: '/docs/products/Data Management and Access Tools/dataaccess/NWMURL Library',
+          },
           // Snow sensing: manual redirects to normalize URL style
           {
             to: '/docs/products/snow-tools',
@@ -234,7 +239,7 @@ const config = {
               existingPath.replace('/docs/products/mobile-apps', '/docs/products/Mobile Apps'),
             ];
           }
-          if (existingPath.includes('/docs/products/data-management')) {
+          if (existingPath.includes('/docs/products/data-management') && !existingPath.includes('NWMURL%20Library')) { // The %20 breaks the build, it appears
             return [
               existingPath.replace('/docs/products/data-management', '/docs/products/Data Management and Access Tools'),
             ];
