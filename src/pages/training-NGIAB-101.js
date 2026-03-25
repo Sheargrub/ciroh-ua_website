@@ -4,5 +4,5 @@ import RedirectHandler from "@site/src/components/RedirectHero/RedirectHandler"
 export default function NgiabModuleRedirect() {
   return (
     <RedirectHandler href="https://ngiab.ciroh.org/training-NGIAB-101" delay="0" />
-  )
+  );
 }
