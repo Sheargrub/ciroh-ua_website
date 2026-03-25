@@ -6,8 +6,11 @@ import { useLocation } from 'react-router-dom';
 
 const target = "https://hub.ciroh.org"
 
+// Note: this function assumes valid path input, i.e. a path that is prefixed by the baseURL.
+// This is a safe assumption in this context, but it may not be a safe assumption in all contexts,
+// so be sure to add safety checks if reusing this logic.
 function stripBaseURL(path, baseURL) {
-    if (baseURL === "/") return path;
+    if (baseURL === "" || baseURL === "/") return path;
     const alteredPath = path.substring(baseURL.length-1);
     return alteredPath;
 }
